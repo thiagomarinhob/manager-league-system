@@ -31,11 +31,10 @@ export async function signInWithEmailAndPassword(data: FormData) {
       password,
     });
 
-    const cookieStore = await cookies();
-    cookieStore.set("token", access_token, {
-      path: "/",
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-    });
+   (await cookies()).set("token", access_token, {
+     path: "/",
+     maxAge: 60 * 60 * 24 * 7, // 7 days
+   });
     // const inviteId = cookies().get("inviteId")?.value;
 
     // if (inviteId) {

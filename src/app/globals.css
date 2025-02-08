@@ -86,3 +86,66 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.sidebar {
+  transition: all 0.25s ease-in-out;
+}
+
+.sidebar.collapsed {
+  transition: all 0.25s ease-in-out;
+  padding-right: 0;
+  width: 80px;
+}
+
+.sidebar.collapsed .hide-when-collapsed {
+  transition: all 0.25s ease-in-out;
+  display: none;
+}
+
+.sidebar:not(.collapsed):hover .hide-when-collapsed {
+  transition: all 0.25s ease-in-out;
+  display: block;
+}
+
+.sidebar.collapsed .logo-image {
+  transition: all 0.25s ease-in-out;
+  padding-left: 20px;
+  padding-right: 1.5rem;
+  height: 44px;
+  -o-object-position: left;
+  object-position: left;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.sidebar.collapsed .text-element {
+  transition: all 0.25s ease-in-out;
+}
+
+.sidebar.collapsed .icon-element {
+  transition: all 0.25s ease-in-out;
+  margin: 0; /* Set margin to 0 for icons */
+}
+
+/* Modified state of text elements with transition delay */
+.sidebar .text-element {
+  display: block; /* or your preferred display style */
+  transition: opacity 0.3s ease 0.5s, visibility 0.3s ease 0.5s; /* Add delay here */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* State of text elements when sidebar is not collapsed, with delay */
+.sidebar:not(.collapsed) .text-element {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s; /* This adds the delay */
+}
+
+/* State of text elements when sidebar is collapsed */
+.sidebar.collapsed .text-element {
+  display: none; /* Hide text elements */
+  opacity: 0;
+  visibility: hidden;
+}
